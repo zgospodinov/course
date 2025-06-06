@@ -1,0 +1,1 @@
+print("Hi Zdravko, this is a test app!")
