@@ -6,7 +6,7 @@ def show_todos():
 todos = []
 
 while True:
-    user_action = input("Type add, show, edit, or exit: ").strip().lower()
+    user_action = input("Type add, show, edit, complete, or exit: ").strip().lower()
 
     match user_action:
         case "add":
@@ -26,8 +26,19 @@ while True:
                     print("Invalid todo number!")
             except ValueError:
                 print("Please enter a valid number.")
+        case "complete":
+            show_todos()
+            try:
+                number = int(input("Enter the number of the todo to complete: "))
+                if 1 <= number <= len(todos):
+                    removed_todo = todos.pop(number - 1)
+                    print(f"Todo '{removed_todo}' was completed and removed from the list!")
+                else:
+                    print("Invalid todo number!")
+            except ValueError:
+                print("Please enter a valid number.")
         case "exit":
             print("Exiting the todo app. Goodbye!")
             break
         case _:
-            print("Unknown command. Please type add, show, edit, or exit.")
+            print("Unknown command. Please type add, show, edit, complete, or exit.")
