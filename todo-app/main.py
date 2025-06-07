@@ -23,8 +23,7 @@ while True:
 
     match user_action:
         case "add":
-            todo = input("Enter a todo: ")
-            todos.append(todo)
+            todos.append(input("Enter a todo: "))
             save_todos(todos)
         case "show":
             show_todos()
@@ -33,8 +32,7 @@ while True:
             try:
                 number = int(input("Enter the number of the todo you want to edit: "))
                 if 1 <= number <= len(todos):
-                    new_todo = input("Enter the new todo: ")
-                    todos[number - 1] = new_todo
+                    todos[number - 1] = input("Enter the new todo: ")
                     save_todos(todos)
                     print("Todo updated successfully!")
                 else:
