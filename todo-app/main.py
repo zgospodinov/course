@@ -1,4 +1,4 @@
-# filepath: c:\F\code\python-mega-course\course\todo-app\main.py
+# filepath: c:\F\code\python-mega-course\course\todo-app\todos.txt
 def get_todos():
     try:
         with open('todos.txt', 'r') as file:
