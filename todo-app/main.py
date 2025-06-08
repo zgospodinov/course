@@ -1,20 +1,4 @@
-# filepath: c:\F\code\python-mega-course\course\todo-app\todos.txt
-def get_todos():
-    try:
-        with open('todos.txt', 'r') as file:
-            return file.read().splitlines()
-    except FileNotFoundError:
-        return []
-
-def save_todos(todos_list):
-    with open('todos.txt', 'w') as file:
-        for todo in todos_list:
-            file.write(todo + '\n')
-
-def show_todos():
-    print("\nYour todos:")
-    for index, todo in enumerate(todos, 1):
-        print(f"{index}. {todo}")
+from functions import get_todos, save_todos, show_todos
 
 todos = get_todos()
 
@@ -26,9 +10,9 @@ while True:
             todos.append(input("Enter a todo: "))
             save_todos(todos)
         case "show":
-            show_todos()
+            show_todos(todos)
         case "edit":
-            show_todos()
+            show_todos(todos)
             try:
                 number = int(input("Enter the number of the todo you want to edit: "))
                 if 1 <= number <= len(todos):
@@ -40,7 +24,7 @@ while True:
             except ValueError:
                 print("Please enter a valid number.")
         case "complete":
-            show_todos()
+            show_todos(todos)
             try:
                 number = int(input("Enter the number of the todo to complete: "))
                 if 1 <= number <= len(todos):
