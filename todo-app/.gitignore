@@ -1,2 +1,4 @@
 # Ignore todos.txt as it contains user-specific data
 todos.txt
+/venv/
+/__pycache__/
