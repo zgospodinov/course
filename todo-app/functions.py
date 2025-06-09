@@ -1,12 +1,14 @@
-def get_todos(filepath='todos.txt'):
+FILEPATH = 'todo-app/todos.txt'
+
+def get_todos(filepath=FILEPATH):
     try:
         with open(filepath, 'r') as file:
             return file.read().splitlines()
     except FileNotFoundError:
         return []
 
-def save_todos(todos_list):
-    with open('todos.txt', 'w') as file:
+def save_todos(todos_list, filepath=FILEPATH):
+    with open(filepath, 'w') as file:
         for todo in todos_list:
             file.write(todo + '\n')
 
