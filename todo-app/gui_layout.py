@@ -8,13 +8,13 @@ COMPLETE_EVENT = "Complete::"  # Prefix for complete button events
 
 TODOS_KEY = "-TODOS-"
 
-def create_edit_popup(todo_text):
+def create_edit_popup(todo_text): 
     layout = [
         [sg.Text("Edit todo:")],
-        [sg.InputText(todo_text, key="edit_todo")],
+        [sg.InputText(todo_text, key="edit_todo", size=(40, 1))],
         [sg.Button(SAVE_EVENT), sg.Button("Cancel")]
     ]
-    return sg.Window("Edit Todo", layout, modal=True)
+    return sg.Window("Edit Todo", layout, modal=True, resizable=True, size=(400, 150))
 
 def create_todo_row(todo, index):    return [
         sg.Text(f"{index + 1}.", size=(3, 1)),
@@ -36,10 +36,12 @@ def create_window():
                    key=TODOS_KEY,
                    scrollable=True,
                    size=(400, 150))]]
-    )
-
+    )   
+    
     window = sg.Window('My To-Do App',
                       layout=[[label],
                              [input_box, add_button],
-                             [todos_column]])
+                             [todos_column]],
+                      resizable=True,
+                      size=(500, 400))
     return window
