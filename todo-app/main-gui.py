@@ -18,5 +18,6 @@ while True:
         todos.append(new_todo)
         functions.save_todos(todos)
         window[layout.TODOS_KEY].update(values=todos)  # Refresh the listbox
+        window['todo'].update('')  # Clear the input field
  
 window.close()
