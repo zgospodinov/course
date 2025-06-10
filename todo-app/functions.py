@@ -1,4 +1,8 @@
-FILEPATH = 'todo-app/todos.txt'
+import os
+
+# Get the directory where the script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+FILEPATH = os.path.join(SCRIPT_DIR, 'todos.txt')
 
 def get_todos(filepath=FILEPATH):
     try:
