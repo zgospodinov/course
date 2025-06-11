@@ -33,5 +33,4 @@ for index, todo in enumerate(st.session_state.todos):
         functions.save_todos(st.session_state.todos)
         st.rerun()
 
-# Debug view of session state
-st.session_state
+
