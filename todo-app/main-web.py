@@ -9,7 +9,7 @@ def add_todo():
             st.session_state.todos.append(todo)
             functions.save_todos(st.session_state.todos)
             st.session_state.todo_input = ""
-            st.rerun()
+            # st.rerun()
         except Exception as e:
             st.error(f"Error saving todo: {str(e)}")
     else:
