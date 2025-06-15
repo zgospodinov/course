@@ -13,3 +13,9 @@ with colRight:
     and microservices architecture. Experienced in system optimizations and scalable solutions.
     """
     st.info(content)
+
+general_message = """
+## Below you can find my projects and apps I have built in Python. 
+Feel free to contact me for any questions or collaborations.
+"""
+st.write(general_message)
