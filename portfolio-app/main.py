@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 st.set_page_config(layout="wide", page_title="Portfolio App")
 
@@ -19,3 +20,18 @@ general_message = """
 Feel free to contact me for any questions or collaborations.
 """
 st.write(general_message)
+
+col3, col4 = st.columns(2)
+
+df = pd.read_csv("data.csv", sep=";")
+
+with col3:
+    for index, row in df.iterrows():
+        if index % 2 == 0:  
+            st.header(row["title"])
+
+with col4:
+    for index, row in df.iterrows():
+        if index % 2 == 1:  
+            st.header(row["title"])
+
