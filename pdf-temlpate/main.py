@@ -15,13 +15,18 @@ pdf.set_auto_page_break(auto=False, margin=0)
 for index, row in df.iterrows():
     pdf.add_page()  
 
+    # Add gray background for header
+    pdf.set_fill_color(240, 240, 240)  # Light gray
+    pdf.rect(0, 0, 220, 25, 'F')  # x, y, width, height, style='F' for fill
+
+    # Add topic text
     pdf.set_font("Arial", size=22, style='B')
     pdf.set_text_color(100, 100, 100)
     pdf.cell(w=0, h=12, txt=row["Topic"], ln=1, align='L')
     
     # Add horizontal lines
     # Starting y position (just after the topic)
-    y_position = 30
+    y_position = 40
     
     # Draw lines until near the bottom of the page (297mm is A4 height)
     while y_position < 287:  # Leave some space at bottom for the footer
