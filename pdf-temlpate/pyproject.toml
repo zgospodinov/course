@@ -1,0 +1,11 @@
+[project]
+name = "pdf-temlpate"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fpdf>=1.7.2",
+    "fpdf2>=2.8.3",
+    "pandas>=2.3.0",
+]
