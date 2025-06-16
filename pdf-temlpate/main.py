@@ -10,12 +10,22 @@ OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'output')
 df = pd.read_csv(os.path.join(SCRIPT_DIR, 'topics.csv'))
 
 pdf = FPDF(orientation='P', unit='mm', format='A4')
+pdf.set_auto_page_break(auto=False, margin=0)
+
 for index, row in df.iterrows():
     pdf.add_page()  
+
     pdf.set_font("Arial", size=22, style='B')
     pdf.set_text_color(100, 100, 100)
     pdf.cell(w=0, h=12, txt=row["Topic"], ln=1, align='L')
     pdf.line(10, 23, 200, 23)
+
+    pdf.ln(258)
+
+    pdf.set_font("Arial", size=8, style='I')
+    pdf.set_text_color(180, 180, 180)
+    pdf.cell(w=0, h=10, txt=row["Topic"], ln=1, align='R')
+
 
     
 # Create output directory if it doesn't exist
