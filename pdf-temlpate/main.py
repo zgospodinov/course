@@ -18,10 +18,18 @@ for index, row in df.iterrows():
     pdf.set_font("Arial", size=22, style='B')
     pdf.set_text_color(100, 100, 100)
     pdf.cell(w=0, h=12, txt=row["Topic"], ln=1, align='L')
-    pdf.line(10, 23, 200, 23)
-
-    pdf.ln(258)
-
+    
+    # Add horizontal lines
+    # Starting y position (just after the topic)
+    y_position = 30
+    
+    # Draw lines until near the bottom of the page (297mm is A4 height)
+    while y_position < 287:  # Leave some space at bottom for the footer
+        pdf.line(10, y_position, 200, y_position)  # 10mm from left, 200mm is near right edge
+        y_position += 10  # Space between lines
+    
+    # Footer - Set position to bottom of page
+    pdf.set_y(287)  # Position footer near bottom
     pdf.set_font("Arial", size=8, style='I')
     pdf.set_text_color(180, 180, 180)
     pdf.cell(w=0, h=10, txt=row["Topic"], ln=1, align='R')
